@@ -6,6 +6,9 @@ However i think this can be educative, for me at least(i hope that for you too).
 My idea for this is to be open source so i hope you can contribute to this, (im not an expert so 
 if you have valuable knowledge you're more than welcome to share it)
 
+## to compile
+cargo build -Z build-std --target x86_64-akira_os.json
+
 ### Sources
 im using this as a guideline for the moment
 Writing an OS in Rust Philipp Oppermann's blog: https://os.phil-opp.com/
