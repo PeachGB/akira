@@ -1,4 +1,4 @@
-### About
+## About
 This proyect is meant to be an operative system in rust.
 Im desinging as i'm developing so, treat this as a work of art more than something usefull.
 
@@ -6,7 +6,7 @@ However i think this can be educative, for me at least(i hope that for you too).
 My idea for this is to be open source so i hope you can contribute to this, (im not an expert so 
 if you have valuable knowledge you're more than welcome to share it)
 
-## to compile
+### to compile
 cargo build -Z build-std --target x86_64-akira_os.json
 
 ### Sources
