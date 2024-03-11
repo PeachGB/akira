@@ -7,7 +7,7 @@ My idea for this is to be open source so i hope you can contribute to this, (im 
 if you have valuable knowledge you're more than welcome to share it)
 
 ### to compile
-cargo build -Z build-std --target x86_64-akira_os.json
+cargo build -Z build-std --target x86_64-akira.json
 
 ### Sources
 im using this as a guideline for the moment
