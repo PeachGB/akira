@@ -8,6 +8,10 @@ if you have valuable knowledge you're more than welcome to share it)
 
 ### to compile
 cargo build -Z build-std --target x86_64-akira.json
+### to make a booteable image
+cargo bootimage -Z build-std --target x86_64-akira.json
+it will output on /akira/target/x86_64-akira/debug/bootimage-akira.bin`
+
 
 ### Sources
 im using this as a guideline for the moment
