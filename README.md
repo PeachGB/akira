@@ -17,9 +17,11 @@ it will output on /akira/target/x86_64-akira/debug/bootimage-akira.bin`
 
 
 ### Sources
-[Writing an OS in Rust Philipp Oppermann's blog](https://os.phil-opp.com/)
-[OSdevWiki](https://wiki.osdev.org/Expanded_Main_Page)
-[Bitwise operators in Rust](https://rustlabs.github.io/docs/rust101/bitwise_operators/)
+[Writing an OS in Rust Philipp Oppermann's blog](https://os.phil-opp.com/) 
+
+[OSdevWiki](https://wiki.osdev.org/Expanded_Main_Page) 
+
+[Bitwise operators in Rust](https://rustlabs.github.io/docs/rust101/bitwise_operators/) 
 
 
 
