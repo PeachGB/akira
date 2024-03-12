@@ -6,6 +6,8 @@ However i think this can be educative, for me at least(i hope that for you too).
 My idea for this is to be open source so i hope you can contribute to this, (im not an expert so 
 if you have valuable knowledge you're more than welcome to share it)
 
+it may be overcommented but its for the people that doesn't understand much about binary operations or low level programming
+
 ### to compile
 cargo build -Z build-std --target x86_64-akira.json
 ### to make a booteable image
