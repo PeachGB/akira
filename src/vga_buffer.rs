@@ -1,9 +1,7 @@
+const VGA_BUFFER: usize = 0xb8000;
 #[allow(dead_code)]
 #[derive(Debug,Copy,Clone,PartialEq,Eq)]
 #[repr(u8)]
-const BUFFER_HEIGHT: usize = 25;
-const BUFFER_WIDTH: usize = 80;
-
 pub enum Color{
     Black = 0,
     Blue = 1,
@@ -38,7 +36,7 @@ impl ColorCode{
         //an example will be foreground blue and background Cyan
         //blue = 0001 >> 4 or cyan 0011 = 00010011
     }
-}
+}       
 
 #[derive(Debug,Copy,Clone,PartialEq,Eq)]
 #[repr(C)]
@@ -47,9 +45,11 @@ struct ScreenChar{
     color_code:ColorCode,
 }
 
+const BUFFER_HEIGHT: usize = 25;
+const BUFFER_WIDTH: usize = 80;
 #[repr(transparent)]
 struct Buffer{
-    chars: [[ScreenChar,BUFFER_WIDTH],BUFFER_HEIGHT]
+    chars: [[ScreenChar;BUFFER_WIDTH];BUFFER_HEIGHT]
 }
 
 pub struct Writer{
@@ -58,7 +58,9 @@ pub struct Writer{
     buffer:&'static mut Buffer,
 }
 impl Writer{
-    pub fn write_byte(&mut self,byte: u8){
+        pub fn newline(&mut self){}  
+
+        pub fn write_byte(&mut self, byte: u8){
         match byte{
             b'\n' => self.newline(),
             byte =>{
@@ -68,18 +70,18 @@ impl Writer{
                 
                 let row = BUFFER_HEIGHT - 1;
                 let col = self.column_position;
-                let color_code = self.color_code
+                let color_code = self.color_code;
                 
-                *self.buffer[row][col] =ScreenChar{
+                self.buffer.chars[row][col] =ScreenChar{
                         ascii_character:byte,
-                        color_code,
+                        color_code:color_code,
                     };
                 self.column_position += 1 
             }
         }
 
     }
-    pub fn write_string(&mut self, str:&str){
+    pub fn write_string(&mut self, s:&str){
         for byte in s.bytes(){
             match byte{
                 //if the byte is a printeable ascii char we print it else we print a ■
@@ -88,16 +90,22 @@ impl Writer{
             }
         }
     } 
-    pub fn newline(&mut self){
-        //TODO
-        }
+   
 
 }
-pub fn print(string:&str color: ColorCode){
-    let mut writer = Writer{
-        column_position:0,
-        color_code: color,
-        buffer: unsafe{&mut *(0xb8000 as *mut Buffer)},
+pub fn print(s: &[u8]){
+
+    let vga_buffer = VGA_BUFFER as *mut u8;
+
+   
+    for (i, &byte) in s.iter().enumerate(){
+        unsafe{
+            *vga_buffer.offset(i as isize * 2) = byte;
+            *vga_buffer.offset(i as isize * 2 + 1) = 0xb;
         }
-        writer.write_string(string)
     }
+}
+   
+fn printv(){
+
+}
