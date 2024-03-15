@@ -23,6 +23,9 @@ it will output on /akira/target/x86_64-akira/debug/bootimage-akira.bin`
 
 [Bitwise operators in Rust](https://rustlabs.github.io/docs/rust101/bitwise_operators/) 
 
+[Developing your own 32-bit operating system-by Burgess, Richard A](https://archive.org/details/developingyourow00burg)
+
+[MachineCode For Beginners-by Usborne Computer Books](https://archive.org/details/machine-code-for-beginners)
 
 
 i'll try to explain everything trough comments, i hope that everything is clear
